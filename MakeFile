@@ -1,22 +1,20 @@
 INCLUDES = -I ./src
-
 ./bin/diskr: ./obj ./bin ./obj/kvadrat.o ./obj/diskr.o
-        gcc -o ./bin/diskr -lm ./obj/kvadrat.o ./obj/diskr.o
+	gcc -o ./bin/diskr -lm ./obj/kvadrat.o ./obj/diskr.o
 
 ./obj:
-        mkdir obj
+	mkdir obj
 
 ./bin:
-        mkdir bin
+	mkdir bin
 
 ./obj/kvadrat.o: ./src/kvadrat.c
-        gcc -c ./src/kvadrat.c -o -lm ./obj/kvadrat.o $(INCLUDES)
+	gcc -c ./src/kvadrat.c -o -lm ./obj/kvadrat.o $(INCLUDES)
 
 ./obj/diskr.o: ./src/diskr.c 
-        gcc -c ./src/diskr.c -o -lm ./obj/diskr.o $(INCLUDES)
-
+	gcc -c ./src/diskr.c -o -lm ./obj/diskr.o $(INCLUDES)
 
 .PHONY: clean
 clean:
-        rm -r ./bin ./obj
+	rm -r ./bin ./obj
 
